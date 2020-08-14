@@ -6,6 +6,7 @@ import (
 	"github.com/99designs/gqlgen/client"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/graphql-go/graphql"
+	"github.com/stretchr/testify/require"
 	"github.com/ygorrodriguesdft/gqlgen-benchmark/gqlgen-server/generated"
 	"github.com/ygorrodriguesdft/gqlgen-benchmark/gqlgen-server/model"
 	"github.com/ygorrodriguesdft/gqlgen-benchmark/gqlgen-server/resolver"
@@ -31,7 +32,7 @@ func TestTodo(t *testing.T) {
 		c.MustPost(`{
 			todos{ id }
 		}`, &resp)
-		// require.Equal(t, "1", resp.Todo.ID)
+		require.Equal(t, "T1", resp.Todos[0].ID)
 	})
 }
 
