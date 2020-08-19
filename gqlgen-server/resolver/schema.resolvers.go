@@ -26,10 +26,14 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	return r.todos, nil
 }
 
-// Mutation returns generated1.MutationResolver implementation.
+func (r *queryResolver) Hello(ctx context.Context) (string, error) {
+	return "world", nil
+}
+
+// Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
-// Query returns generated1.QueryResolver implementation.
+// Query returns generated.QueryResolver implementation.
 func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }

@@ -2,11 +2,13 @@ package schema
 
 import (
 	"github.com/graphql-go/graphql"
+	"github.com/ygorrodriguesdft/gqlgen-benchmark/graphql-go-server/schema/hello"
 	"github.com/ygorrodriguesdft/gqlgen-benchmark/graphql-go-server/schema/todo"
 )
 
 var queryFields = graphql.Fields{
-	"listTodos": todo.ListTodos,
+	"listTodos":  todo.ListTodos,
+	"helloWorld": hello.HelloWorld,
 }
 
 var mutationFields = graphql.Fields{
