@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+    benchmark-gqlgen:
+      image: ygorrodrigues/benchmarkgqlgen
+      deploy:
+        placement:
+          max_replicas_per_node: 1
+          constraints:
+            - "node.role==worker"
+        replicas: 1
+        resources:
+          limits:
+            cpus: '1'
+            memory: 100M
+          reservations:
+            cpus: '0.5'
+            memory: 50M
+    benchmark-graphqlgo:
+      image: ygorrodrigues/benchmarkgraphqlgo
+      deploy:
+        placement:
+          max_replicas_per_node: 1
+          constraints:
+            - "node.role==worker"
+        replicas: 1
+        resources:
+          limits:
+            cpus: '1'
+            memory: 100M
+          reservations:
+            cpus: '0.5'
+            memory: 50M
